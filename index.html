@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeMarket - Marketing for Programmers</title>
+    <link rel="icon" href="imaj/#1a1a1a">
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Courier New', monospace;
+            background-color: #0a0a0a;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        a {
+            color: #af4caa;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Header styles */
+        header {
+            background-color: #0a0a0a;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #af4ca7;
+        }
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        .nav-links a {
+            color: #e0e0e0;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover {
+            color: #af4ca7;
+        }
+
+        /* Hero section styles */
+        .hero {
+            background-color: #0a0a0a;
+            padding: 100px 0;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #4caf50;
+            color: #0a0a0a;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+
+        /* Services section styles */
+        .services {
+            padding: 80px 0;
+        }
+        .section-title {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        .service-card {
+            background-color: #1a1a1a;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .service-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #4caf50;
+        }
+
+        /* About section styles */
+        .about {
+            padding: 80px 0;
+            background-color: #1a1a1a;
+        }
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        .about-text {
+            flex: 1;
+        }
+        .about-image {
+            flex: 1;
+            text-align: center;
+        }
+        .about-image img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+
+        /* Team section styles */
+        .team {
+            padding: 80px 0;
+        }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+        .team-member {
+            text-align: center;
+        }
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        /* Testimonials section styles */
+        .testimonials {
+            padding: 80px 0;
+            background-color: #0a0a0a;
+        }
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .testimonial-card {
+            background-color: #2a2a2a;
+            padding: 30px;
+            border-radius: 8px;
+        }
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+        .testimonial-author {
+            font-weight: bold;
+            color: #4caf50;
+        }
+
+        /* Case Studies section styles */
+        .case-studies {
+            padding: 80px 0;
+        }
+        .case-study-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .case-study-card {
+            background-color: #1a1a1a;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .case-study-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .case-study-content {
+            padding: 20px;
+        }
+        .case-study-content h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #ac4c9d;
+        }
+
+        /* Contact section styles */
+        .contact {
+            padding: 80px 0;
+            background-color: #0a0a0a;
+        }
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            background-color: #2a2a2a;
+            border: 1px solid #4caf50;
+            border-radius: 4px;
+            color: #e0e0e0;
+        }
+        .form-group textarea {
+            height: 150px;
+        }
+
+        /* Footer styles */
+        footer {
+            background-color: #080808;
+            padding: 40px 0;
+            text-align: center;
+        }
+        .footer-links {
+            margin-bottom: 20px;
+        }
+        .footer-links a {
+            margin: 0 10px;
+        }
+        .social-links a {
+            font-size: 24px;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">&lt; MONEME SCHOP /&gt;</div>
+            <div class="nav-links">
+                <a href="about.html">About</a>
+                <a href="products.html" >Products</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Welcome to <span style="color: #af4ca7;">&lt;Moneme shop /&gt;</span></h1>
+                <p>welcome to moneme shop the best store rabat</p>
+                <a href="#contact" class="btn">Get Started</a>
+            </div>
+        </section>
+
+        <section id="services" class="services">
+            <div class="container">
+             
+
+      
+            </div>
+        </section>
+
+            </div>
+        </section>
+
+        <section id="team" class="team">
+            <div class="container">
+                <h2 class="section-title">Our Team</h2>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <img src="imaj/WhatsApp Image 2024-09-03 à 11.47.52_8462909c.jpg" alt="MONEME">
+                        <h3>MONEME</h3>
+                        <p>CEO & Lead Strategist</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="imaj/images (1).jpeg" alt="AMINA">
+                        <h3>AMINA</h3>
+                        <p>CTO & SEO Expert</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="imaj/images.jpeg" alt="Alice Johnson">
+                        <h3>Alice Johnson</h3>
+                        <p>Content Marketing Manager</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="imaj/ef3c63f_797864941-000-9m72qm.jpg" alt="Bob Wilson">
+                        <h3>Bob Wilson</h3>
+                        <p>Data Analytics Specialist</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <div class="container">
+           
+        
+        </section>
+
+     
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2 class="section-title">Communication site</h2>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for=""></label>
+                        
+                        <div class="logo">
+                            <a href="https://www.instagram.com/moneme__schop?igsh=M2pra2wwa3lkb3Nj">
+                              <img src=
+        "https://media.geeksforgeeks.org/wp-content/uploads/20220609090809/download-200x200.png" 
+                                alt="img1" height="30px">
+                            </a>
+                            <div><h1>MONEME SCHOP</h1></div>
+                        </div>
+                        <div class="logo">
+                            <a href="https://www.facebook.com/profile.php?id=61559284328641"></a>
+                            <div id="fb-icon"  href= "">
+                        </div>
+                            <style>
+                              #fb-icon {
+                              background:#1a1a1a ;
+                              text-indent: -999em;
+                              width: 120px;
+                              height: 110px;
+                              border-radius: 5px;
+                              position: relative;
+                              overflow: hidden;
+                              border: 15px solid #1a1a1ad4;
+                              border-bottom: 0;
+                            }
+                            #fb-icon::before {
+                              content: "/20";
+                              position: absolute;
+                              background: rgba(0, 0, 0, );
+                              width : 40px;
+                              height: 90px;
+                              bottom: -30px;
+                              right: -37px;
+                              border: 20px solid #eee;
+                              border-radius: 40px;
+                            }
+                            #fb-icon::after {
+                              content: "/20";
+                              position: absolute;
+                              width: 55px;
+                              top: 50px;
+                              height: 20px;
+                              background: #eee;
+                              right: 5px;
+                            }
+                        
+                            </style>
+               
+                            </div>             
+                            <div><h1>MONEME SCHOP</h1></div>
